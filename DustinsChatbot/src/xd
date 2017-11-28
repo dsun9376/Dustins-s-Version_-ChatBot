@@ -1,0 +1,14 @@
+private int wordsearchCounter(String mmwhatchusay)
+	{
+		for (int wrong = 0; wrong <=6; wrong ++)
+		{
+			if (findKeyword(mmwhatchusay, "nevergiveup") <= -1 || findKeyword(mmwhatchusay, "cheerful") <= -1 || 
+				findKeyword(mmwhatchusay, "optimistic") <=-1  || findKeyword(mmwhatchusay, "joyful") <=-1
+				|| findKeyword(mmwhatchusay, "brightside") <=-1|| findKeyword(mmwhatchusay, "smile") <=-1) 
+			{
+				return wrong;
+			}
+		}
+		return 0;
+	}
+  // the value is always returning 0 even though it should run through the for loop first
