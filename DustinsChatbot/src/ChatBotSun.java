@@ -36,19 +36,19 @@
 						response = "Why don't you start the conversation?";
 					}
 					
-					if (findKeyword(statement,"sad") >=0) 
+					else if (findKeyword(statement,"sad") >=0) 
 					{
 						response = "Don't be that way, that is unhealthy to your body";
 					   emotion --;
 					}
 					
-					if (findKeyword(statement, "depressed") >= 0)
+					else if (findKeyword(statement, "depressed") >= 0)
 					{
 						response = "Don't be that way, that is unhealthy to your body";
 						   emotion --;
 				    }
 							
-					if (findKeyword(statement, "don't feel well")>=0)
+					else if (findKeyword(statement, "don't feel well")>=0)
 					{
 						response = "Don't be that way, that is unhealthy to your body";
 						   emotion --;
@@ -60,31 +60,31 @@
 			                	emotion--;
 					}
 					
-					if  (findKeyword(statement, "chest pain") >=0 )
+					else if  (findKeyword(statement, "chest pain") >=0 )
                     {
                     	response = "Why do you feel this way? Anything happened?";
 	                	emotion--;
                     }
 
-					if (findKeyword(statement, "crushed")>=0)
+					else if (findKeyword(statement, "crushed")>=0)
 					{ 
 						response = "Why do you feel this way? Anything happened?";
 	                	emotion--;
 					}
 					
-					else if ((findKeyword(statement, "abuse") >= 0) && (findKeyword(statement, "live") >=0))
+					else if ((findKeyword(statement, "abuse") >= 0) || (findKeyword(statement, "live") >=0))
 					{
 						response = "Don't get too excited!! Give me your address and I'll send help right away !";
 						emotion++;
 					}
 					
-					if (findKeyword(statement, "suicidal") >=0 )
+					else if (findKeyword(statement, "suicidal") >=0 )
 					{
 						response = "Don't get too excited!! Give me your address and I'll send help right away !";
 						emotion++;
 					}
 
-					if (findKeyword(statement, "live") >=0)
+					else if (findKeyword(statement, "live") >=0)
 					{
 						response = "Don't get too excited!! Give me your address and I'll send help right away !";
 						emotion++;
@@ -98,36 +98,31 @@
 					{
 						response = lifeStruggle(statement);
 						
-					if (findKeyword(statement, "hard") >=0)
-					{
-						response = lifeStruggle(statement);
-					}
+						if (findKeyword(statement, "hard") >=0)
+						{
+							response = lifeStruggle(statement);
+						}
 					}
 					else if (findKeyword(statement, "meaningless") >=0) 
 					{
 						response =lifeEmergency(statement);
 					}
 					
-					if (findKeyword(statement, "die") >=0)
+					else if (findKeyword(statement, "die") >=0)
 					{
 						response =lifeEmergency(statement);
 					}
 					
-					if (findKeyword(statement, "hopeless")>=0)
+					else if (findKeyword(statement, "hopeless")>=0)
 					{
 						response =lifeEmergency(statement);
 					}
 					else 
 					{
-						if (findKeyword(statement, "better")>=0)
-						{
-							response = getRandomResponse();
-						}
-						
-						if (findKeyword(statement, "I'm good now")>=0)
 						response = getRandomResponse();
 					}
 					
+				
 					/*else
 					{
 					 	response = " That I'm not sure what advice to give you  either XD... You want to talk about something that I know of?"
@@ -265,7 +260,7 @@
 					int psnOfYou = findKeyword (statement, "hopeless", psnOfI);
 					
 					String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-					return "Why do you " + restOfStatement + " me?";
+					return "Why do you " + restOfStatement + " do this to yourself?";
 				}
 				
 
@@ -383,7 +378,7 @@
 				private String lifeSavor()
 				{
 					Random r= new Random();
-					return randomLifesavor [r.nextInt(randomLifesavor.length)];
+					return randomLifeEmergency [r.nextInt(randomLifeEmergency.length)];
 				}
 				private String [] randomNeutralResponses = {"Interesting, tell me more",
 						"Hmmm.",
@@ -411,12 +406,24 @@
 					"Always do more work, people only tend to worry when they are not doing anything. If you load yourself with work, you will have no time to think about pathetic things",
 					"Forget about the struggles in life, learn to enjoy everything and act optimistic at all times"
 			   	};
-				private String [] randomLifesavor =
+				private String [] randomLifeEmergency =
 				{ 
 					"AMBULACE IS ON THE WAY! WE'LL BE THERE IN ONE SEC",
 					"THE POLICE ARE ON THEIR WAY NOW",
 					"DON'T GIVE UP ON LIFE THAT EASY",
 				};
+				private String getRandomresponse()
+				{
+					Random g = new Random();
+					return getRandomresponse[g.nextInt(getRandomresponse.length)];
+				}
+				private String [] getRandomresponse = 
+				{ 
+						"Sorry I can't help you", "You can make it", "What other problems do you have", "Believe in yourself"
+				};
+	
+				 
+}
 	
 				 
 }
