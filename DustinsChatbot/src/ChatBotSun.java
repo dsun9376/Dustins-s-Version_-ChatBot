@@ -1,5 +1,5 @@
 
-	import java.util.Random;
+import java.util.Random;
 
 	/**
 	 * A program to carry on conversations with a human user.
@@ -258,15 +258,17 @@
 					}
 					int psnOfI = findKeyword (statement, "die", 0);
 					int psnOfYou = findKeyword (statement, "hopeless", psnOfI);
-					
-					String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-					return "Why do you " + restOfStatement + " do this to yourself?";
+					System.out.println(psnOfI + " " + psnOfYou);
+					System.out.println(statement);
+					String restOfStatement = "";
+					if(psnOfI < psnOfYou)
+					{
+						restOfStatement =  restOfStatement + statement.substring(psnOfI+1, psnOfYou+2).trim();
+					}
+					return "Why do you " + restOfStatement + "feel hopeless?";
 				}
-				
-
-				
-				
-				/**
+						
+					/**
 				 * Search for one word in phrase. The search is not case
 				 * sensitive. This method will check that the given goal
 				 * is not a substring of a longer string (so, for
@@ -412,18 +414,8 @@
 					"THE POLICE ARE ON THEIR WAY NOW",
 					"DON'T GIVE UP ON LIFE THAT EASY",
 				};
-				private String getRandomresponse()
-				{
-					Random g = new Random();
-					return getRandomresponse[g.nextInt(getRandomresponse.length)];
-				}
-				private String [] getRandomresponse = 
-				{ 
-						"Sorry I can't help you", "You can make it", "What other problems do you have", "Believe in yourself"
-				};
-	
-				 
-}
+				
+		
 	
 				 
 }
