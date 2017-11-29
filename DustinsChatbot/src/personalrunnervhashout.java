@@ -86,8 +86,8 @@ public class personalrunnervhashout
 	 
 	 			while (!x.equals("Bye"))
 	 			{
-	 				System.out.println (chatbot4.getResponse(x));
 	 				x = in.nextLine();
+	 				System.out.println (chatbot4.getResponse(x));
 	 			}
 	 		}
 		}
@@ -101,4 +101,6 @@ public class personalrunnervhashout
 			main(null);
 		}
 	}
+}
+
 }
